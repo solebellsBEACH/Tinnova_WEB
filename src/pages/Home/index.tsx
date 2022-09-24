@@ -12,7 +12,7 @@ const HomeComponent = () => {
                         color='white'
                         fontWeight='bold'
                         fontFamily='roboto'
-                        fontSize='6xl'
+                        fontSize='5xl'
                         width='25rem'
                     >Crie um novo usuário no formulário ao lado</Text>
                 </ContentLeft>

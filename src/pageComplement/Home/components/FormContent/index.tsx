@@ -23,7 +23,7 @@ export const FormContent = () => {
                     fontWeight='bold'
                     fontFamily='roboto'
                     fontSize='3xl'
-                    marginBottom='20px'
+                    margin='0 10px 20px 10px'
                 >Preencha o formulário</Text>
             </Collapse>
             <SimpleGrid
