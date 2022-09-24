@@ -6,7 +6,7 @@ background:${colors().background4} ;
 width:450px ;
 min-height:300px;
 border-radius:10px;
-padding:10px 15px;
+padding:40px 0px;
 display:flex;
 justify-content:center;
 align-items:center;
