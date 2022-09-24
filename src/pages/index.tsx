@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
-// import HomeComponent from './Home'
+import HomeComponent from './Home'
 
 const Index: NextPage = () => {
+  
   return (
-    <div>Página Home</div>
-    // <HomeComponent />
+    <HomeComponent />
   )
 }
 
