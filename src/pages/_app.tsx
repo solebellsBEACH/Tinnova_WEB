@@ -9,7 +9,6 @@ import { theme } from '../global/styles';
 function MyApp({ Component, pageProps }: AppProps) {
   return <ThemeProvider theme={theme}>
     <ChakraProvider>
-
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>

@@ -10,9 +10,12 @@ import {
     Tr
 } from '@chakra-ui/react'
 import React from 'react'
+import { IUser } from '../../../../core/interfaces'
 import { Container } from './styles'
-
-export const UserTable = () => {
+interface IUserTable {
+    data: IUser[]
+}
+export const UserTable = ({ data }: IUserTable) => {
     return (
         <Container>
             <TableContainer>
@@ -26,12 +29,16 @@ export const UserTable = () => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Td>inches</Td>
-                            <Td>millimetres (mm)</Td>
-                            <Td>25.4</Td>
-                            <Td>millimetres (mm)</Td>
-                        </Tr>
+                        {data.map((item, index) => {
+                            return <Tr
+                                key={`trTable${index}`}
+                            >
+                                <Td>{item.name}</Td>
+                                <Td>{item.cpf}</Td>
+                                <Td>{item.phone}</Td>
+                                <Td>{item.email}</Td>
+                            </Tr>
+                        })}
                     </Tbody>
                     <Tfoot>
                         <Tr>
