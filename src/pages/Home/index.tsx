@@ -14,7 +14,7 @@ const HomeComponent = () => {
                         fontFamily='roboto'
                         fontSize='5xl'
                         width='25rem'
-                    >Crie um novo usuário no formulário ao lado</Text>
+                    >Crie um novo usuário no formulário a seguir</Text>
                 </ContentLeft>
                 <ContentRight>
                     <FormContent />

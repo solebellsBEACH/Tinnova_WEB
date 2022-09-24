@@ -1,6 +1,6 @@
-import { Collapse, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react'
+import { Box, Collapse, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
-import { TextInput } from '../../../../core/components'
+import { SubmitButton, TextInput } from '../../../../core/components'
 import { IForm } from '../../../../core/interfaces'
 import { checkDevice } from '../../../../core/utils'
 import { Container } from './styles'
@@ -68,6 +68,10 @@ export const FormContent = () => {
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='Email' />
             </SimpleGrid>
+
+            <Collapse in={isOpen} animateOpacity>
+                <SubmitButton label='Cadastrar' loading={false} />
+            </Collapse>
         </Container>
     )
 }
