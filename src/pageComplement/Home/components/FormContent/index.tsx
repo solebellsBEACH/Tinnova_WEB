@@ -32,13 +32,13 @@ export const FormContent = () => {
                     fontWeight='bold'
                     fontFamily='roboto'
                     fontSize='3xl'
-                    margin='0 10px 20px 10px'
+                    margin='0 10px 30px 10px'
                 >{fieldFocus == null ? 'Preencha o formulário' : 'Preencha o ' + fieldFocus}</Text>
             </Collapse>
             <SimpleGrid
                 width='80%'
                 columns={1}
-                spacing={5}>
+                spacing={8}>
                 <TextInput
                     id='name-field'
                     value={formValues.name}

@@ -13,10 +13,13 @@ const Users = (props: any) => {
     useEffect(() => {
         dispatch(UsersActions.UsersRequest())
     }, [props])
-
+    
     return (
         <Container>
-            {userData.data !== null ? <UserTable data={userData.data} /> : <></>}
+            {userData.data !== null ?
+                <UserTable data={userData.data} /> :
+                <></>
+            }
         </Container>
     )
 }

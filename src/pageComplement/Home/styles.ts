@@ -27,6 +27,7 @@ margin: 0 30px;
 display:flex;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 @media (max-width:950px){
     margin: 30px 0;
     width:60% ;
