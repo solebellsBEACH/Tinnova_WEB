@@ -1,10 +1,16 @@
 import React from 'react'
-import { Container } from '../../pageComplement/Home/styles'
+import { FormContent } from '../../pageComplement/Home/components';
+import { Container, Content, ContentLeft, ContentRight } from '../../pageComplement/Home/styles'
 
 const HomeComponent = () => {
     return (
         <Container>
-            Pagina Home
+            <Content>
+                <ContentLeft></ContentLeft>
+                <ContentRight>
+                    <FormContent/>
+                </ContentRight>
+            </Content>
         </Container>
     )
 }
