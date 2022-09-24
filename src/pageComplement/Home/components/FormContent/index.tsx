@@ -1,17 +1,13 @@
 import { Collapse, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { TextInput } from '../../../../core/components'
+import { IForm } from '../../../../core/interfaces'
 import { checkDevice } from '../../../../core/utils'
 import { Container } from './styles'
 
 export const FormContent = () => {
     const [fieldFocus, setFieldFocus] = useState<string | null>(null)
-    interface IForm {
-        name: string
-        cpf: string
-        phone: string
-        email: string
-    }
+
     const [formValues, setFormValues] = useState<IForm>({
         name: '',
         cpf: '',
@@ -51,18 +47,21 @@ export const FormContent = () => {
                     label='Nome Completo'
                 />
                 <TextInput
+                    type='cpf'
                     setValue={(e) => { setFormValues({ ...formValues, cpf: e }) }}
                     value={formValues.cpf}
                     onMouseEnter={() => { setFieldFocus('CPF') }}
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='CPF' />
                 <TextInput
+                    type='phone'
                     setValue={(e) => { setFormValues({ ...formValues, phone: e }) }}
                     value={formValues.phone}
                     onMouseEnter={() => { setFieldFocus('telefone') }}
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='Telefone' />
                 <TextInput
+                    type='email'
                     setValue={(e) => { setFormValues({ ...formValues, email: e }) }}
                     value={formValues.email}
                     onMouseEnter={() => { setFieldFocus('email') }}

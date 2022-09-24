@@ -1,5 +1,7 @@
-import {TextInput} from './Inputs/TextInput'
+import { TextInput } from './Inputs/TextInput'
+import { SubmitButton } from './Buttons/SubmitButton'
 
 export {
-    TextInput
+    TextInput,
+    SubmitButton
 }

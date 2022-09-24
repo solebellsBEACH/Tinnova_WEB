@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../../helpers'
- 
+import InputMask from 'react-input-mask';
+
 export const Container  = styled.div`
 background:${colors().gray4} ;
 display:flex;
@@ -12,7 +13,7 @@ border-radius:5px;
 width: 100%;
 `
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(InputMask)`
 width:100%;
 height:50px;
 border:solid ${colors().background4} 2px;
