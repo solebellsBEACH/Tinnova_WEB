@@ -5,12 +5,14 @@ import { Container } from './styles'
 interface ISubmitButton {
     label: string
     loading: boolean
+    id?: string
 }
 
-export const SubmitButton = ({ label, loading }: ISubmitButton) => {
+export const SubmitButton = ({ label, loading, id }: ISubmitButton) => {
     return (
         <Container
-        loading={loading}
+            id={id}
+            loading={loading}
         >
             {loading ? <Spinner size='lg' color='white' /> : <Text
                 color='white'

@@ -7,9 +7,10 @@ interface ITextInput {
     onMouseEnter?: () => void
     onMouseLeave?: () => void
     type?: 'text' | 'cpf' | 'email' | 'phone'
+    id?: string
 }
 
-export const TextInput = ({ label, onMouseEnter, onMouseLeave, type, value, setValue }: ITextInput) => {
+export const TextInput = ({ label, onMouseEnter, onMouseLeave, type, value, setValue, id }: ITextInput) => {
 
     const inputConfigs = {
         text: { type: 'text', mask: '' },
@@ -24,6 +25,7 @@ export const TextInput = ({ label, onMouseEnter, onMouseLeave, type, value, setV
             onMouseLeave={onMouseLeave}
         >
             <StyledInput
+                id={id}
                 placeholder={label}
                 type={type === undefined ? 'text' : type}
                 mask={type === undefined ? inputConfigs.text.mask : inputConfigs[type].mask}

@@ -40,6 +40,7 @@ export const FormContent = () => {
                 columns={1}
                 spacing={5}>
                 <TextInput
+                    id='name-field'
                     value={formValues.name}
                     setValue={(e) => { setFormValues({ ...formValues, name: e }) }}
                     onMouseEnter={() => { setFieldFocus('nome') }}
@@ -47,6 +48,7 @@ export const FormContent = () => {
                     label='Nome Completo'
                 />
                 <TextInput
+                    id='cpf-field'
                     type='cpf'
                     setValue={(e) => { setFormValues({ ...formValues, cpf: e }) }}
                     value={formValues.cpf}
@@ -54,6 +56,7 @@ export const FormContent = () => {
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='CPF' />
                 <TextInput
+                    id='phone-field'
                     type='phone'
                     setValue={(e) => { setFormValues({ ...formValues, phone: e }) }}
                     value={formValues.phone}
@@ -61,6 +64,7 @@ export const FormContent = () => {
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='Telefone' />
                 <TextInput
+                    id='email-field'
                     type='email'
                     setValue={(e) => { setFormValues({ ...formValues, email: e }) }}
                     value={formValues.email}
@@ -70,7 +74,9 @@ export const FormContent = () => {
             </SimpleGrid>
 
             <Collapse in={isOpen} animateOpacity>
-                <SubmitButton label='Cadastrar' loading={false} />
+                <SubmitButton
+                id='submit-button'
+                label='Cadastrar' loading={false} />
             </Collapse>
         </Container>
     )
