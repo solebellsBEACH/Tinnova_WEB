@@ -1,20 +1,26 @@
+import { Text } from '@chakra-ui/react'
 import React from 'react'
-import { Container } from './styled'
-import {
-    TextField,
-} from '@material-ui/core';
-
+import { Container, StyledInput } from './styled'
 interface ITextInput {
+    value: string
+    setValue: (value: string) => void
     label: string
+    onMouseEnter?: () => void
+    onMouseLeave?: () => void
+    type?: 'text' | 'tel'
 }
 
-export const TextInput = ({ label }: ITextInput) => {
+export const TextInput = ({ label, onMouseEnter, onMouseLeave, type, value, setValue }: ITextInput) => {
+
     return (
-        <Container>
-            <TextField
-                label={label}
-                variant="standard"
-                fullWidth
+        <Container
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+        >
+            <StyledInput
+                placeholder={label}
+                onChange={e => setValue(e.target.value)}
+                type={type == undefined ? 'text' : type}
             />
         </Container>
     )
