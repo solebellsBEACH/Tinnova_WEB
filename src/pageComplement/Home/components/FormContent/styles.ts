@@ -10,4 +10,5 @@ padding:40px 0px;
 display:flex;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 `

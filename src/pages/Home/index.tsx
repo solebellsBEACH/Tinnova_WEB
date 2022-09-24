@@ -8,16 +8,16 @@ const HomeComponent = () => {
         <Container>
             <Content>
                 <ContentLeft>
-                <Text 
-                color='white'
-                fontWeight='bold'
-                fontFamily='roboto'
-                fontSize='6xl'
-                width='25rem'
-                >Crie um novo usuário no formulário ao lado</Text>
+                    <Text
+                        color='white'
+                        fontWeight='bold'
+                        fontFamily='roboto'
+                        fontSize='6xl'
+                        width='25rem'
+                    >Crie um novo usuário no formulário ao lado</Text>
                 </ContentLeft>
                 <ContentRight>
-                    <FormContent/>
+                    <FormContent />
                 </ContentRight>
             </Content>
         </Container>
