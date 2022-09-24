@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 import React from 'react'
 import { FormContent } from '../../pageComplement/Home/components';
-import { Container, Content, ContentLeft, ContentRight, Label } from '../../pageComplement/Home/styles'
+import { Container, Content, ContentLeft, ContentRight } from '../../pageComplement/Home/styles'
 
 const HomeComponent = () => {
     return (

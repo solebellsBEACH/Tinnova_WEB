@@ -38,5 +38,3 @@ align-items:center;
 
 export const ContentRight = styled.div`
 `
-
-export const Label = styled.h1``
