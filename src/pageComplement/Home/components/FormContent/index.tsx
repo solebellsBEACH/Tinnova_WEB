@@ -1,11 +1,12 @@
 import React from 'react'
-import { Container } from './styles'
+import { TextInput } from '../../../../core/components'
+import { Container} from './styles'
 
 export const FormContent = () => {
 
     return (
         <Container>
-
+            <TextInput label='Nome Completo'/>
         </Container>
     )
 }
