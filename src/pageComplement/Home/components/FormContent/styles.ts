@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import { colors } from '../../../../core/helpers'
 
 export const Container = styled.div`
-background:${colors().background4} ;
+background:${props=>props.theme.colors.background4} ;
 min-width:250px ;
 max-width:450px ;
 width:60vw ;

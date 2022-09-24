@@ -3,7 +3,8 @@ export interface IHomeDuckInitialState {
     error: boolean,
     success: boolean,
     data: [] | null
-};
+}; 
+
 
 export interface IForm {
     name: string

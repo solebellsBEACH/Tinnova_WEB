@@ -1,5 +1,5 @@
-const colors = () => {
-    return {
+export const theme = {
+    colors: {
         white: '#FFFFFF',
         gray1: '#F5F5F5',
         gray2: '#E8E8E8',
@@ -15,8 +15,4 @@ const colors = () => {
         green4: '#32A89C',
         green5: '#00635A'
     }
-}
-
-export {
-    colors
-}
+  }
