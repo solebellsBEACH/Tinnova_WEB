@@ -6,13 +6,15 @@ interface ISubmitButton {
     label: string
     loading: boolean
     id?: string
+    onClick: () => void
 }
 
-export const SubmitButton = ({ label, loading, id }: ISubmitButton) => {
+export const SubmitButton = ({ label, loading, id, onClick }: ISubmitButton) => {
     return (
         <Container
             id={id}
             loading={loading}
+            onClick={onClick}
         >
             {loading ? <Spinner size='lg' color='white' /> : <Text
                 color='white'

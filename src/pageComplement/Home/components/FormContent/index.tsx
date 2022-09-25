@@ -1,13 +1,15 @@
 import { Box, Collapse, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { SubmitButton, TextInput } from '../../../../core/components'
+import { notHaveEmptyFields } from '../../../../core/hooks'
 import { IForm } from '../../../../core/interfaces'
 import { checkDevice } from '../../../../core/utils'
 import { Container } from './styles'
 
 export const FormContent = () => {
     const [fieldFocus, setFieldFocus] = useState<string | null>(null)
-
+    const router = useRouter();
     const [formValues, setFormValues] = useState<IForm>({
         name: '',
         cpf: '',
@@ -20,7 +22,9 @@ export const FormContent = () => {
     if (typeof window !== 'undefined') {
         isDevice = checkDevice(window)
     }
-
+    const handleSubmit = () => {
+        router.push('/Users')
+    }
     return (
         <Container
             onMouseEnter={() => { if (!isDevice) onToggle() }}
@@ -73,10 +77,12 @@ export const FormContent = () => {
                     label='Email' />
             </SimpleGrid>
 
-            <Collapse in={isOpen} animateOpacity>
+            <Collapse in={notHaveEmptyFields(formValues)} animateOpacity>
                 <SubmitButton
-                id='submit-button'
-                label='Cadastrar' loading={false} />
+                    id='submit-button'
+                    label='Cadastrar'
+                    onClick={handleSubmit}
+                    loading={false} />
             </Collapse>
         </Container>
     )
