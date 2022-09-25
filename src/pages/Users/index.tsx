@@ -4,8 +4,8 @@ import { UserTable } from '../../pageComplement/Users/components';
 import { Button, Container } from '../../pageComplement/Users/styles'
 import { Creators as UsersActions } from '../../core/store/ducks/users'
 import { IUsersDuckInitialState } from '../../core/interfaces';
-import { Header } from '../../core/components';
-import { Text } from '@chakra-ui/react';
+import { Header, LottieComponent } from '../../core/components';
+import { Box, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 
 const Users = (props: any) => {
@@ -30,7 +30,10 @@ const Users = (props: any) => {
             >Listagem de Usuários</Text>
             {userData.data !== null ?
                 <UserTable data={userData.data} /> :
-                <></>
+                <Box
+                marginTop='30px'
+                marginBottom='50px'
+                ><LottieComponent size={200}/></Box>
             }
             <Button><Text
                 color='white'
