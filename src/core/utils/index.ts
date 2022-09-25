@@ -1,4 +1,4 @@
-export function checkDevice(window: Window & typeof globalThis) {
+function checkDevice(window: { navigator: { userAgent: string } }) {
     const { navigator } = window
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -13,4 +13,8 @@ export function checkDevice(window: Window & typeof globalThis) {
     else {
         return false; // não é celular
     }
+}
+
+export {
+    checkDevice
 }
