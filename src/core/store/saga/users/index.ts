@@ -1,5 +1,5 @@
 import { all, fork, put, call, takeLatest } from 'redux-saga/effects';
-import { api } from '../../../services/api';
+import { api } from '../../../../services/api';
 import { Types as UsersTypes, Creators as UserCreators } from '../../ducks/users'
 
 function* getUsers(params: any):any {

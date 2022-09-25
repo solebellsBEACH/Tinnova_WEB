@@ -1,5 +1,5 @@
 import React from 'react'
-import * as animationData from '../../../lottie/94249-loading.json'
+import * as animationData from '../../lottie/94249-loading.json'
 import Lottie from 'react-lottie';
 
 interface ILottieComponent {
