@@ -13,7 +13,8 @@ import {
 import React, { useState } from 'react'
 import { getLocalStorage } from '../../../../core/hooks'
 import { IUser } from '../../../../core/interfaces'
-import { addDeletedUserInLocalStorage } from '../../hooks'
+import { getStorageUsers } from '../../../Home/hooks'
+import { addDeletedUserInLocalStorage, addEditedUserInLocalStorage } from '../../hooks'
 import { TrUserItem } from '../TrUserItem'
 import { Container } from './styles'
 interface IUserTable {
@@ -22,12 +23,10 @@ interface IUserTable {
 export const UserTable = ({ data }: IUserTable) => {
 
     const [deletedUsers, setDeletedUsers] = useState<string>('')
+    const [editedUsers, setEditedUsers] = useState<string>('')
 
     const handleDeleteUserButton = (user: IUser) => {
         addDeletedUserInLocalStorage(user, setDeletedUsers)
-    }
-    const handleEditUserButton = (user: IUser) => {
-        // addDeletedUserInLocalStorage(user, setDeletedUsers)
     }
 
 
@@ -46,11 +45,20 @@ export const UserTable = ({ data }: IUserTable) => {
                     <Tbody>
                         {data.map((item, index) => {
                             if (deletedUsers?.match(item.cpf) || getLocalStorage("deletedUsers")?.match(item.cpf)) return
+                            let data = item
+                            if (editedUsers?.match(item.cpf) || getLocalStorage("editedUsers")?.match(item.cpf)) {
+                                const users = getLocalStorage("editedUsers")
+                                if (users !== null) {
+                                    const formattedUsers = getStorageUsers(users).find(e => e.cpf == item.cpf)
+                                    formattedUsers ? data = formattedUsers : data
+                                }
+
+                            }
+
                             return <TrUserItem
-                                item={item}
+                                item={data}
                                 index={index}
                                 handleDeleteUserButton={handleDeleteUserButton}
-                                handleEditUserButton={handleEditUserButton}
                             />
                         })}
                     </Tbody>

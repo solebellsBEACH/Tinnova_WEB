@@ -19,8 +19,26 @@ function getStorageDeletedUsers(users: string) {
     return stringToArray(users).map(e => { return (stringToObject(e)) })
 }
 
+function createUserStringData(user: IUser) {
+    return `{ "name": "${user.name}", "cpf": "${user.cpf}", "phone": "${user.phone}", "email": "${user.email}" }`
+}
+
+function addEditedUserInLocalStorage(user: IUser,
+    // setState: React.Dispatch<React.SetStateAction<string>>
+) {
+    if (localStorageIsFilled('editedUsers')) {
+        setLocalStorage('editedUsers', getLocalStorage('editedUsers') + "=><=" + createUserStringData(user))
+        // setState(getLocalStorage('editedUsers') + "=><=" + createUserStringData(user))
+    } else {
+        setLocalStorage('editedUsers', createUserStringData(user))
+        // setState(createUserStringData(user))
+    }
+}
+
 export {
     createDeletedUserStringData,
     addDeletedUserInLocalStorage,
-    getStorageDeletedUsers
+    getStorageDeletedUsers,
+    addEditedUserInLocalStorage,
+    createUserStringData
 }
