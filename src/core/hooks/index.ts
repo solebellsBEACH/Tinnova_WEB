@@ -49,21 +49,27 @@ function setLocalStorage(key: string, value: string) {
     }
 }
 
+function localStorageIsFilled(key: string) {
+    if (getLocalStorage(key) == null) return false
+    return true
+}
+
 function stringToObject(value: string): IUser {
     return JSON.parse(value)
 }
 
 function stringToArray(value: string) {
-
-    let array = value.replace('[', '')
-    array = array.replace(']', '')
-    array = array.replace(/},/g, '}')
-    array = array.replace(/ {/g, '{')
-    array = array.replace(/}/g, '}=>')
+    let array = value
+        .replace('[', '')
+        .replace(']', '')
+        .replace(/},/g, '}')
+        .replace(/ {/g, '{')
+        .replace(/}/g, '}=>')
     let result = array.split('=>')
     result.splice(result.indexOf(''), 1)
     return result
 }
+
 
 export {
     checkDevice,
@@ -72,5 +78,6 @@ export {
     removeLocalStorage,
     setLocalStorage,
     stringToObject,
-    stringToArray
+    stringToArray,
+    localStorageIsFilled
 }
