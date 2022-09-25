@@ -6,10 +6,10 @@ import { addEditedUserInLocalStorage } from '../../hooks'
 interface ITrUserItem {
     item: IUser
     handleDeleteUserButton: (item: IUser) => void
-    
+
 }
 
-export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
+export const TrUserItem = ({ item, handleDeleteUserButton }: ITrUserItem) => {
 
     const [editableMode, setEditableMode] = useState(false)
     const [form, setForm] = useState<IUser>(item)
@@ -20,9 +20,10 @@ export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
 
 
     return <Tr
-        
+
     >
         <Td><Input
+         id={`nameEditField-${item.cpf}`}
             variant={!editableMode ? 'unstyled' : 'filled'}
             placeholder={item.name}
             defaultValue={item.name}
@@ -46,6 +47,7 @@ export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
         /></Td>
         <Td>
             <Button
+            id={`deleteButton-${item.cpf}`}
                 onClick={() => { handleDeleteUserButton(item) }}
                 colorScheme='red' size='xs'>
                 Excluir
@@ -63,6 +65,7 @@ export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
                         Cancelar
                     </Button>
                     <Button
+                        id={`confirmEditButton-${item.cpf}`}
                         onClick={() => {
                             setEditableMode(false)
                             if (JSON.stringify(form) !== JSON.stringify(item)) {
@@ -74,6 +77,7 @@ export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
                         Confirmar
                     </Button>
                 </> : <Button
+                    id={`editButton-${item.cpf}`}
                     onClick={() => {
                         setEditableMode(true)
                     }}

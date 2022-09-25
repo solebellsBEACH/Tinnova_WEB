@@ -1,4 +1,4 @@
-describe('Testando Formulário', () => {
+describe('Testando a criação dos usuários', () => {
   it('Visitando home', () => {
     cy.visit('http://localhost:3000/')
   })
@@ -12,3 +12,4 @@ describe('Testando Formulário', () => {
     cy.get('#submit-button').click();
   });
 })
+
