@@ -1,4 +1,4 @@
-import { IForm } from "../interfaces"
+import { IForm, IUser } from "../interfaces"
 
 const notHaveEmptyFields = (form: IForm) => {
     let result = true
@@ -50,10 +50,15 @@ function setLocalStorage(key: string, value: string) {
 }
 
 
+function stringToObject(value: string): IUser {
+    return JSON.parse(value)
+}
+
 export {
     checkDevice,
     notHaveEmptyFields,
     getLocalStorage,
     removeLocalStorage,
-    setLocalStorage
+    setLocalStorage,
+    stringToObject,
 }
