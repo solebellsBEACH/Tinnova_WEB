@@ -6,14 +6,16 @@ interface ISubmitButton {
     label: string
     id?: string
     onClick: () => void
+    enable: boolean
 }
 
-export const SubmitButton = ({ label, id, onClick }: ISubmitButton) => {
+export const SubmitButton = ({ label, id, onClick, enable }: ISubmitButton) => {
 
     const [loading, setLoading] = useState(false)
 
     return (
         <Container
+        enable={enable}
             id={id ? id : 'submit'}
             loading={loading}
             onClick={() => {
@@ -22,7 +24,7 @@ export const SubmitButton = ({ label, id, onClick }: ISubmitButton) => {
             }}
         >
             {loading ? <Spinner size='lg' color='white' /> : <Text
-                color='white'
+                color={enable?'white':'gray.300'}
                 fontWeight='bold'
                 fontFamily='roboto'
                 fontSize='18px'

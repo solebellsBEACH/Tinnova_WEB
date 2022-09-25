@@ -77,13 +77,11 @@ export const FormContent = ({ formValues, setFormValues }: IFormContent) => {
                     onMouseLeave={() => { setFieldFocus(null) }}
                     label='Email' />
             </SimpleGrid>
-
-            <Collapse in={notHaveEmptyFields(formValues)} animateOpacity>
                 <SubmitButton
+                enable={notHaveEmptyFields(formValues)}
                     id='submit-button'
                     label='Cadastrar'
                     onClick={handleSubmit} />
-            </Collapse>
         </Container>
     )
 }
