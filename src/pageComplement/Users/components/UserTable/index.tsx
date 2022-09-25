@@ -1,4 +1,5 @@
 import {
+    Button,
     Table,
     TableCaption,
     TableContainer,
@@ -9,13 +10,23 @@ import {
     Thead,
     Tr
 } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
+import { getLocalStorage } from '../../../../core/hooks'
 import { IUser } from '../../../../core/interfaces'
+import { addDeletedUserInLocalStorage } from '../../hooks'
 import { Container } from './styles'
 interface IUserTable {
     data: IUser[]
 }
 export const UserTable = ({ data }: IUserTable) => {
+
+    const [deletedUsers, setDeletedUsers] = useState<string>('')
+
+    const handleDeleteUserButton = (user: IUser) => {
+        addDeletedUserInLocalStorage(user, setDeletedUsers)
+    }
+
+
     return (
         <Container>
             <TableContainer>
@@ -30,6 +41,7 @@ export const UserTable = ({ data }: IUserTable) => {
                     </Thead>
                     <Tbody>
                         {data.map((item, index) => {
+                            if (deletedUsers?.match(item.cpf) || getLocalStorage("deletedUsers")?.match(item.cpf)) return
                             return <Tr
                                 key={`trTable${index}`}
                             >
@@ -37,6 +49,13 @@ export const UserTable = ({ data }: IUserTable) => {
                                 <Td>{item.cpf}</Td>
                                 <Td>{item.phone}</Td>
                                 <Td>{item.email}</Td>
+                                <Td>
+                                    <Button
+                                        onClick={() => handleDeleteUserButton(item)}
+                                        colorScheme='red' size='xs'>
+                                        Excluir
+                                    </Button>
+                                </Td>
                             </Tr>
                         })}
                     </Tbody>
