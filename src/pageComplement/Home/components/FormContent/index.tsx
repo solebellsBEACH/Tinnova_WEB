@@ -2,9 +2,8 @@ import { Box, Collapse, SimpleGrid, Text, useDisclosure } from '@chakra-ui/react
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { SubmitButton, TextInput } from '../../../../core/components'
-import { notHaveEmptyFields } from '../../../../core/hooks'
+import { checkDevice, notHaveEmptyFields } from '../../../../core/hooks'
 import { IForm } from '../../../../core/interfaces'
-import { checkDevice } from '../../../../core/utils'
 import { Container } from './styles'
 
 export const FormContent = () => {
