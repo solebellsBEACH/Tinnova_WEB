@@ -27,7 +27,8 @@ function checkDevice(window: { navigator: { userAgent: string } }) {
 
 function getLocalStorage(key: string) {
     try {
-        return localStorage.getItem(`@tinnova-web/${key}`)
+        if (typeof window !== 'undefined') return window.localStorage.getItem(`@tinnova-web/${key}`)
+        else return null
     } catch (error) {
         console.error(error)
         return null
@@ -59,15 +60,7 @@ function stringToObject(value: string): IUser {
 }
 
 function stringToArray(value: string) {
-    let array = value
-        .replace('[', '')
-        .replace(']', '')
-        .replace(/},/g, '}')
-        .replace(/ {/g, '{')
-        .replace(/}/g, '}=>')
-    let result = array.split('=>')
-    result.splice(result.indexOf(''), 1)
-    return result
+    return value.split('=><=')
 }
 
 

@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { SubmitButton, TextInput } from '../../../../core/components'
 import { checkDevice, notHaveEmptyFields } from '../../../../core/hooks'
 import { IForm } from '../../../../core/interfaces'
+import { addUserInLocalStorage } from '../../hooks'
 import { Container } from './styles'
 
 export const FormContent = () => {
@@ -22,7 +23,13 @@ export const FormContent = () => {
         isDevice = checkDevice(window)
     }
     const handleSubmit = () => {
-        router.push('/Users')
+        addUserInLocalStorage({
+            name: 'Lucas',
+            cpf: '11111111111',
+            phone: '11111111111',
+            email: '333333',
+        })
+        // router.push('/Users')
     }
     return (
         <Container
