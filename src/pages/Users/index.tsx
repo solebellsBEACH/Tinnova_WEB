@@ -4,6 +4,7 @@ import { UserTable } from '../../pageComplement/Users/components';
 import { Container } from '../../pageComplement/Users/styles'
 import { Creators as UsersActions } from '../../core/store/ducks/users'
 import { IUsersDuckInitialState } from '../../core/interfaces';
+import { Header } from '../../core/components';
 
 const Users = (props: any) => {
 
@@ -13,9 +14,10 @@ const Users = (props: any) => {
     useEffect(() => {
         dispatch(UsersActions.UsersRequest())
     }, [props])
-    
+
     return (
         <Container>
+            <Header />
             {userData.data !== null ?
                 <UserTable data={userData.data} /> :
                 <></>

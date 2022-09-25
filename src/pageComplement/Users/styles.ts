@@ -6,6 +6,7 @@ min-height:100vh ;
 height:auto ;
 width:auto ;
 display:flex;
-justify-content:center;
+/* justify-content:center; */
 align-items:center;
+flex-direction:column;
 `
