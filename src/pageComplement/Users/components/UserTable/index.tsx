@@ -57,7 +57,7 @@ export const UserTable = ({ data }: IUserTable) => {
 
                             return <TrUserItem
                                 item={data}
-                                index={index}
+                                key={`trTable${index}`}
                                 handleDeleteUserButton={handleDeleteUserButton}
                             />
                         })}

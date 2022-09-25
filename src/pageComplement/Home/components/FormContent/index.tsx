@@ -82,8 +82,7 @@ export const FormContent = ({ formValues, setFormValues }: IFormContent) => {
                 <SubmitButton
                     id='submit-button'
                     label='Cadastrar'
-                    onClick={handleSubmit}
-                    loading={false} />
+                    onClick={handleSubmit} />
             </Collapse>
         </Container>
     )

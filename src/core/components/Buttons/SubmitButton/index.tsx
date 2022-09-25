@@ -1,20 +1,25 @@
 import { Spinner, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from './styles'
 
 interface ISubmitButton {
     label: string
-    loading: boolean
     id?: string
     onClick: () => void
 }
 
-export const SubmitButton = ({ label, loading, id, onClick }: ISubmitButton) => {
+export const SubmitButton = ({ label, id, onClick }: ISubmitButton) => {
+
+    const [loading, setLoading] = useState(false)
+
     return (
         <Container
-            id={id}
+            id={id ? id : 'submit'}
             loading={loading}
-            onClick={onClick}
+            onClick={() => {
+                setLoading(true)
+                onClick()
+            }}
         >
             {loading ? <Spinner size='lg' color='white' /> : <Text
                 color='white'

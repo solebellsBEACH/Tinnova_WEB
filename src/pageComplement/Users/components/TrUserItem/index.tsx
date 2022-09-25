@@ -5,12 +5,11 @@ import { addEditedUserInLocalStorage } from '../../hooks'
 
 interface ITrUserItem {
     item: IUser
-    index: number
     handleDeleteUserButton: (item: IUser) => void
     
 }
 
-export const TrUserItem = ({ item, index, handleDeleteUserButton}: ITrUserItem) => {
+export const TrUserItem = ({ item, handleDeleteUserButton}: ITrUserItem) => {
 
     const [editableMode, setEditableMode] = useState(false)
     const [form, setForm] = useState<IUser>(item)
@@ -21,7 +20,7 @@ export const TrUserItem = ({ item, index, handleDeleteUserButton}: ITrUserItem) 
 
 
     return <Tr
-        key={`trTable${index}`}
+        
     >
         <Td><Input
             variant={!editableMode ? 'unstyled' : 'filled'}
