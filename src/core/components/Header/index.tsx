@@ -13,15 +13,6 @@ export const Header = () => {
                 fontFamily='roboto'
                 fontSize='2xl'
             >Listagem de Usuários</Text>
-
-            <Text
-                position='absolute'
-                color='white'
-                fontWeight='bold'
-                fontFamily='roboto'
-                fontSize='2xl'
-                right='5vw'
-            >Criar usuário</Text>
         </Container>
     )
 }
