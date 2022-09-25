@@ -1,4 +1,4 @@
-import { checkDevice, notHaveEmptyFields, stringToObject } from '..'
+import { checkDevice, notHaveEmptyFields, stringToArray, stringToObject } from '..'
 
 test('Testando hook que valida os fields !!', () => {
     expect(notHaveEmptyFields({
@@ -19,5 +19,11 @@ test('Testando checkDevice para um PC !!', () => {
 test('Testando hook transforma uma string em um Object', () => {
     const value = '{ "name": "Lucas", "cpf": "111111111", "phone": "111111111", "email": "dddddddddd" }'
     expect(stringToObject(value).name)
-    .toBe('Lucas')
+        .toBe('Lucas')
+})
+
+test('Testando hook transforma uma string em um array', () => {
+    const value = '[{ "name": "Lucas", "cpf": "111111111", "phone": "111111111", "email": "dddddddddd" }, { "name": "Lucas", "cpf": "111111111", "phone": "111111111", "email": "dddddddddd" }, { "name": "Lucas", "cpf": "111111111", "phone": "111111111", "email": "dddddddddd" }]'
+    expect(stringToArray(value).length)
+    .toBe(3)
 })
