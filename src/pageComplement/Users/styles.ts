@@ -8,7 +8,7 @@ export const Container = styled.div`
     display:flex;
     align-items:center;
     flex-direction:column;
-`
+`;
 
 
 export const Button = styled.button`
@@ -22,4 +22,4 @@ export const Button = styled.button`
     &:hover{
         filter:contrast(1);
     }
-`
+`;

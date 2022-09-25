@@ -20,7 +20,9 @@ const Users = (props: any) => {
 
     return (
         <Container>
-            <Header />
+            <Header
+            label='Listagem de usuários'
+            />
             <Text
                 color='white'
                 fontWeight='bold'

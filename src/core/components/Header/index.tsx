@@ -3,7 +3,11 @@ import React from 'react'
 import { LottieComponent } from '../LottieComponent'
 import { Container } from './styles'
 
-export const Header = () => {
+interface IHeaderProps {
+    label: string
+}
+
+export const Header = ({ label }: IHeaderProps) => {
     return (
         <Container>
             <LottieComponent size={100} />
@@ -12,7 +16,7 @@ export const Header = () => {
                 fontWeight='bold'
                 fontFamily='roboto'
                 fontSize='2xl'
-            >Listagem de Usuários</Text>
+            >{label}</Text>
         </Container>
     )
 }
