@@ -1,7 +1,7 @@
 import {
     Button,
+    Input,
     Table,
-    TableCaption,
     TableContainer,
     Tbody,
     Td,
@@ -14,6 +14,7 @@ import React, { useState } from 'react'
 import { getLocalStorage } from '../../../../core/hooks'
 import { IUser } from '../../../../core/interfaces'
 import { addDeletedUserInLocalStorage } from '../../hooks'
+import { TrUserItem } from '../TrUserItem'
 import { Container } from './styles'
 interface IUserTable {
     data: IUser[]
@@ -25,6 +26,9 @@ export const UserTable = ({ data }: IUserTable) => {
     const handleDeleteUserButton = (user: IUser) => {
         addDeletedUserInLocalStorage(user, setDeletedUsers)
     }
+    const handleEditUserButton = (user: IUser) => {
+        // addDeletedUserInLocalStorage(user, setDeletedUsers)
+    }
 
 
     return (
@@ -35,35 +39,26 @@ export const UserTable = ({ data }: IUserTable) => {
                         <Tr>
                             <Th>nome</Th>
                             <Th>cpf</Th>
-                            <Th>phone</Th>
+                            <Th>telefone</Th>
                             <Th>email</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
                         {data.map((item, index) => {
                             if (deletedUsers?.match(item.cpf) || getLocalStorage("deletedUsers")?.match(item.cpf)) return
-                            return <Tr
-                                key={`trTable${index}`}
-                            >
-                                <Td>{item.name}</Td>
-                                <Td>{item.cpf}</Td>
-                                <Td>{item.phone}</Td>
-                                <Td>{item.email}</Td>
-                                <Td>
-                                    <Button
-                                        onClick={() => handleDeleteUserButton(item)}
-                                        colorScheme='red' size='xs'>
-                                        Excluir
-                                    </Button>
-                                </Td>
-                            </Tr>
+                            return <TrUserItem
+                                item={item}
+                                index={index}
+                                handleDeleteUserButton={handleDeleteUserButton}
+                                handleEditUserButton={handleEditUserButton}
+                            />
                         })}
                     </Tbody>
                     <Tfoot>
                         <Tr>
                             <Th>nome</Th>
                             <Th>cpf</Th>
-                            <Th>phone</Th>
+                            <Th>telefone</Th>
                             <Th>email</Th>
                         </Tr>
                     </Tfoot>

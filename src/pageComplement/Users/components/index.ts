@@ -1,5 +1,7 @@
 import { UserTable } from './UserTable'
+import { TrUserItem } from './TrUserItem'
 
 export {
-    UserTable
+    TrUserItem,
+    UserTable 
 }
