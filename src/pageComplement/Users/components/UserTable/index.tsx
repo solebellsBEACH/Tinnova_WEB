@@ -16,7 +16,6 @@ interface IUserTable {
     data: IUser[]
 }
 export const UserTable = ({ data }: IUserTable) => {
-    console.log(data)
     return (
         <Container>
             <TableContainer>

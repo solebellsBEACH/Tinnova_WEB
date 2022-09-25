@@ -7,15 +7,15 @@ import { IForm } from '../../../../core/interfaces'
 import { addUserInLocalStorage } from '../../hooks'
 import { Container } from './styles'
 
-export const FormContent = () => {
+interface IFormContent {
+    setFormValues: React.Dispatch<React.SetStateAction<IForm>>
+    formValues: IForm
+}
+
+export const FormContent = ({ formValues, setFormValues }: IFormContent) => {
     const [fieldFocus, setFieldFocus] = useState<string | null>(null)
     const router = useRouter();
-    const [formValues, setFormValues] = useState<IForm>({
-        name: '',
-        cpf: '',
-        phone: '',
-        email: '',
-    })
+
     const { isOpen, onToggle } = useDisclosure()
     let isDevice = false;
 
@@ -23,13 +23,8 @@ export const FormContent = () => {
         isDevice = checkDevice(window)
     }
     const handleSubmit = () => {
-        addUserInLocalStorage({
-            name: 'Lucas',
-            cpf: '11111111111',
-            phone: '11111111111',
-            email: '333333',
-        })
-        // router.push('/Users')
+        addUserInLocalStorage(formValues)
+        router.push('/Users')
     }
     return (
         <Container

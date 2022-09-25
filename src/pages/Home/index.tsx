@@ -1,11 +1,17 @@
 import { Text } from '@chakra-ui/react';
-import React from 'react'
+import React, { useState } from 'react'
 import { LottieComponent } from '../../core/components';
+import { IForm } from '../../core/interfaces';
 import { FormContent } from '../../pageComplement/Home/components';
 import { Container, Content, ContentLeft, ContentRight } from '../../pageComplement/Home/styles'
 
 const HomeComponent = () => {
-
+    const [formValues, setFormValues] = useState<IForm>({
+        name: '',
+        cpf: '',
+        phone: '',
+        email: '',
+    })
     return (
         <Container>
             <Content>
@@ -23,7 +29,10 @@ const HomeComponent = () => {
                     >Crie um novo usuário no formulário a seguir</Text>
                 </ContentLeft>
                 <ContentRight>
-                    <FormContent />
+                    <FormContent
+                    formValues={formValues}
+                    setFormValues={setFormValues}
+                    />
                 </ContentRight>
             </Content>
         </Container>
